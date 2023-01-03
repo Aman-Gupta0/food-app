@@ -3,20 +3,20 @@ import Grid from '@material-ui/core/Grid';
 
 const style = {
   container: {
-    backgroundColor: 'white',
-    color: 'black',
+    backgroundColor: "white",
+    color: "black",
     paddingBottom: 10,
-    border: '1px solid #fff',
+    border: "1px solid #fff",
   },
   name: {
-    fontSize: '17px',
+    fontSize: "17px",
     fontWeight: 500,
-    wordBreak: 'break-word',
+    wordBreak: "break-word",
   },
   types: {
-    color: '#686b78',
-    fontSize: '13px',
-    marginTop: '4px',
+    color: "#686b78",
+    fontSize: "13px",
+    marginTop: "4px",
   },
 
   image: {
@@ -26,24 +26,30 @@ const style = {
     left: 0,
     right: 0,
     bottom: 0,
-    background: 'rgba(20,44,63,.05)',
-    backgroundBlendMode: 'overlay',
+    background: "rgba(20,44,63,.05)",
+    backgroundBlendMode: "overlay",
   },
   rating: {
-    backgroundColor: '#db7c38',
-    color: '#fff',
-    textAlign: 'center',
+    backgroundColor: "#db7c38",
+    color: "#fff",
+    textAlign: "center",
+    padding: "0px 7px",
+    borderRadius: 5,
   },
   rating2: {
-    backgroundColor: 'green',
-    color: '#fff',
-    textAlign: 'center',
+    backgroundColor: "green",
+    color: "#fff",
+    textAlign: "center",
+    padding: "0px 7px",
+    borderRadius: 5,
   },
 };
+const noRating = " - ";
+
 const Card = (props) => {
-  let str = '';
+  let str = "";
   for (let i = 0; i < props.types.length - 1; i++) {
-    str += props.types[i] + ', ';
+    str += props.types[i] + ", ";
   }
   str += props.types[props.types.length - 1];
 
@@ -59,9 +65,9 @@ const Card = (props) => {
         <div>
           <Grid container spacing={3}>
             <Grid item>
-              <span style={props.rating >= 4 ? style.rating2 : style.rating}>
-                {props.rating}
-              </span>
+              <div style={props.rating >= 4 ? style.rating2 : style.rating}>
+                {props.rating || noRating}
+              </div>
             </Grid>
 
             <Grid item>
@@ -69,7 +75,7 @@ const Card = (props) => {
             </Grid>
             <Grid item>
               <span>
-                {props.price} {props.name ? 'for 2' : ''}
+                {props.price} {props.name ? "for 2" : ""}
               </span>
             </Grid>
           </Grid>
